@@ -19,3 +19,13 @@ class PhotographerApi extends Api {
         return await this.get()
     }
 }
+
+class MediaApi extends Api {
+    constructor(url) {
+        super(url)
+    }
+
+    async getMedias() {
+        return await this.get()
+    }
+}
