@@ -13,7 +13,7 @@ class PhotographerHeader {
             </div>
 
             <div class="">
-                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                <button class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
             </div>
 
             <div>
