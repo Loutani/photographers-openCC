@@ -118,3 +118,20 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.total-likes-container {
+    width: 300Px;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    right: 0px;
+    padding: 15px;
+    background: #DB8876;
+}
+
+.total-likes-container span {
+    font-weight: bolder;
+}
