@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" alt="web site logo" class="logo" />
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -24,15 +24,15 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="close contact icon" onclick="closeModal()" />
         </header>
         
         <h3 class="contact-photographer-name"></h3>
         
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+						<input id="firstname" type="text" />
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
