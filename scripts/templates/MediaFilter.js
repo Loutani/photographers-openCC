@@ -130,6 +130,8 @@ class MediaFilter {
         this.clickOnMediaHandler()
 
         this._lightboxModal.render()
+
+        this.clickLikeHandler()
     }
 
     selectFilterChange() {
@@ -156,7 +158,7 @@ class MediaFilter {
 
     clickOnMediaHandler() {
         const mediasCanBeClicked = document.querySelectorAll('.show-in-light-box')
-
+        
         mediasCanBeClicked.forEach( (media, index) => {
             const mediaId       = media.getAttribute('media-id'),
                   mediaIndex    = index;
