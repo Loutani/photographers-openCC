@@ -35,8 +35,8 @@ class MediaFilter {
         const totalLikesWrapper = `
             <div class="total-likes-container">
                 <div>
-                    <span>${totalLikes}</span>
-                    <span>icon</span>
+                    <span class="total-likes">${totalLikes}</span>
+                    <span><i class="fas fa-heart"></i></span>
                 </div>
                 <div>
                     <span>${price} € / jour</span>
@@ -59,6 +59,16 @@ class MediaFilter {
         return data
     }
 
+    getTotalLikes() {
+        let totalLikesCount = 0;
+
+        this._medias.map(media => {
+            totalLikesCount += media.likes
+        });
+
+        return totalLikesCount
+    }
+
     createMedias() {
         const photographerName  =   this.directoriesName.find(
                                         name => this._photographer._name.replace('-', ' ').includes(name)
@@ -76,8 +86,9 @@ class MediaFilter {
 
             mediaContent += new MediaFactory(mediaData, photographerName).render()
 
-            this._totalLikes += media.likes
         });
+        
+        this._totalLikes = this.getTotalLikes()
 
         return mediaContent
     }
@@ -93,10 +104,14 @@ class MediaFilter {
                 if(parentLikeButton.classList.contains('active')) {
                     parentLikeButton.classList.remove('active')
                     likeTotal.innerText = parseInt(likeTotal.innerText) - 1
+                    this._totalLikes -= 1
                 }else {
                     parentLikeButton.classList.add('active')
                     likeTotal.innerText = parseInt(likeTotal.innerText) + 1
+                    this._totalLikes += 1
                 }
+
+                document.querySelector('.total-likes').innerHTML = this._totalLikes
             })
         });
 
@@ -132,6 +147,8 @@ class MediaFilter {
         this._lightboxModal.render()
 
         this.clickLikeHandler()
+
+        document.querySelector('.total-likes').innerHTML = this._totalLikes
     }
 
     selectFilterChange() {
