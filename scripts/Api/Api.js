@@ -4,7 +4,7 @@ class Api {
     }
 
     async get() {
-        return  fetch(this._url).
+        return fetch(this._url).
                 then(response => response.json()).
                 catch(error => console.log('an error occurs', error))
     }
@@ -16,7 +16,7 @@ class PhotographerApi extends Api {
     }
 
     async getPhotographers() {
-        return await this.get()
+        return this.get()
     }
 }
 
@@ -26,6 +26,6 @@ class MediaApi extends Api {
     }
 
     async getMedias() {
-        return await this.get()
+        return this.get()
     }
 }
