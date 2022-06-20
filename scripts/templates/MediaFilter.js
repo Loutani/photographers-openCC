@@ -51,8 +51,27 @@ class MediaFilter {
         data.sort( (a,b) => {
             switch(filterType) {
                 case 'likes'    : return b.likes - a.likes;
-                case 'date'     : return new Date(b.date) > new Date(a.date) ? 1 : (new Date(b.date) <  new Date(a.date) ? -1 : 0);
-                case 'title'    : return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
+                case 'date'     : 
+                    if(new Date(b.date) > new Date(a.date)) {
+                        return 1
+                    }
+
+                    if(new Date(b.date) <  new Date(a.date)) {
+                        return -1
+                    }
+
+                    return 0
+
+                case 'title'    : 
+                    if(a.title > b.title) {
+                        return 1
+                    }
+                    
+                    if(a.title < b.title ? -1 : 0) {
+                        return -1
+                    }
+
+                    return 0
             }
         })
 
