@@ -17,8 +17,8 @@ class VideoMedia {
                         <p>${this._media._title}</p>
                         <p class="like-count">
                             <span>${this._media._likes}</span>
-                            <i class="fas fa-heart solid"></i>
-                            <i class="fal fa-heart light"></i>
+                            <i aria-label="likes" class="fas fa-heart solid"></i>
+                            <i aria-label="likes" class="fal fa-heart light"></i>
                         </p>
                     </div>
                 </div>

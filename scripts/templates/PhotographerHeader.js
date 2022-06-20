@@ -13,11 +13,11 @@ class PhotographerHeader {
             </div>
 
             <div class="">
-                <button class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
+                <button title="Contact Me" class="contact_button" onclick="displayModal('${this._photographer._name}')">Contactez-moi</button>
             </div>
 
             <div>
-                <img src="assets/photographers/${this._photographer._portrait}"/>
+                <img alt="${this._photographer._name}" src="assets/photographers/${this._photographer._portrait}"/>
             </div>
         `
     }

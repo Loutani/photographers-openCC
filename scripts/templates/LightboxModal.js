@@ -55,7 +55,7 @@ class LightboxModal {
         let selectedMedia = this._medias.find(media => media.id == id)
 
         const mediaHtml = selectedMedia.image !== undefined ? 
-                `<img src="assets/media/${directoryName}/${selectedMedia.image}" /><span>${selectedMedia.title}</span>` : 
+                `<img alt="${selectedMedia.title}" title="${selectedMedia.title}" src="assets/media/${directoryName}/${selectedMedia.image}" /><span>${selectedMedia.title}</span>` : 
                 `<video controls src="assets/media/${directoryName}/${selectedMedia.video}">
                     Your browser does not support the HTML5 Video element.
                 </video><span>${selectedMedia.title}</span>`;

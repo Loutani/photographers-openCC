@@ -126,7 +126,7 @@ class MediaFilter {
 
         return `
             <div class="select-container">
-                <select>
+                <select id="order-by" title="Order by">
                     ${options}
                 </select>
             </div>
@@ -164,7 +164,7 @@ class MediaFilter {
     createMediaFilter() {
         return `
             <div class="filter">
-                <p>Trier par</p>
+                <label for="order-by">Trier par</label>
                 ${this.createSelectFilter()}
             </div>
             <div class="media-content">

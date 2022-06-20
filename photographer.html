@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" alt="web site logo" class="logo" />
+      <a href="/"><img src="assets/images/logo.png" title="Fisheye Home page" alt="Fisheye Home page" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -39,17 +39,19 @@
 			</div>
 		</div>
 
-    <div class="lightbox-modal">
+    <div class="lightbox-modal" aria-label="image closeup view">
       <div class="lightbox-modal-content">
         <div class="lightbox-modal-header">
-          <span class="lightbox-close">X</span>
+          <button class="lightbox-modal-close-button" type="button" title="Close dialog">
+            <span class="lightbox-close">X</span>
+          </button>
         </div>
         <div class="lightbox-modal-body">
           
         </div>
         <div class="lightbox-modal-pagination">
-          <span class="lightbox-modal-arrow-left"><</span>
-          <span class="lightbox-modal-arrow-right">></span>
+          <a title="Previous image"><span class="lightbox-modal-arrow-left"><</span></a>
+          <a title="Next image"><span class="lightbox-modal-arrow-right">></span></a>
         </div>
       </div>
     </div>
