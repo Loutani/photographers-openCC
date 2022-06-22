@@ -53,7 +53,7 @@ class LightboxModal {
             if(event.key === 'ArrowRight') {
                 this._showNextElement()
             }
-        }, false)
+        })
     }
 
     //add press left arrow keyboard to show previous element
@@ -62,7 +62,7 @@ class LightboxModal {
             if(event.key === 'ArrowLeft') {
                 this._showPrevElement()
             }
-        }, false)
+        })
     }
 
     //hide light box by press escape keyboard
