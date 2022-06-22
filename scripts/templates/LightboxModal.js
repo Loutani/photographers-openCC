@@ -40,6 +40,28 @@ class LightboxModal {
         document.querySelector('.lightbox-modal-arrow-left').addEventListener('click', this._showPrevElementHandler)
     }
 
+    //hide light box by press escape keyboard
+    closeLightBoxByKeyboard() {
+        window.addEventListener('keydown', function(e) {
+
+            //return scroll to the body HTML element
+            document.body.classList.remove('has-open-lightbox')
+            
+            //hide lightbox and empty it's HTML content
+            this._selectedCard = {
+                opened      : false,
+                htmlContent : ``,
+                selectedId  : null
+            }
+
+            //empty the light box HTML content
+            document.querySelector('.lightbox-modal-body').innerHTML = this._selectedCard.htmlContent
+
+            //hide the light box
+            document.querySelector('.lightbox-modal').classList.remove('show')
+        });
+    }
+
     //show the light box
     showLightBox(mediaId, index, directoryName) {
 
@@ -137,5 +159,8 @@ class LightboxModal {
 
         //add click previous listener
         this.prevElementButtonClick()
+
+        this.closeLightBoxByKeyboard()
     }
+
 }
