@@ -24,8 +24,10 @@ class LightboxModal {
         //bind this operator to click prev handler
         this._showPrevElementHandler = this._showPrevElement.bind(this)
 
+        //bidn this operator to press next handler
         this.nextByKeyboardHandler = this.nextByKeyboardPress.bind(this)
 
+        //bidn this operator to press previous handler
         this.prevByKeyboardHandler = this.prevByKeyboardPress.bind(this)
 
     }
