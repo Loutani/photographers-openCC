@@ -23,6 +23,11 @@ class LightboxModal {
 
         //bind this operator to click prev handler
         this._showPrevElementHandler = this._showPrevElement.bind(this)
+
+        this.nextByKeyboardHandler = this.nextByKeyboardPress.bind(this)
+
+        this.prevByKeyboardHandler = this.prevByKeyboardPress.bind(this)
+
     }
 
     //add click event listener on close lightbox
@@ -40,25 +45,45 @@ class LightboxModal {
         document.querySelector('.lightbox-modal-arrow-left').addEventListener('click', this._showPrevElementHandler)
     }
 
+    //add press right arrow keyboard to show next element
+    nextByKeyboardPress() {
+        window.addEventListener('keydown', event => {
+            if(event.key === 'ArrowRight') {
+                this._showNextElement()
+            }
+        }, false)
+    }
+
+    //add press left arrow keyboard to show previous element
+    prevByKeyboardPress() {
+        window.addEventListener('keydown', event => {
+            if(event.key === 'ArrowLeft') {
+                this._showPrevElement()
+            }
+        }, false)
+    }
+
     //hide light box by press escape keyboard
     closeLightBoxByKeyboard() {
         window.addEventListener('keydown', function(e) {
 
-            //return scroll to the body HTML element
-            document.body.classList.remove('has-open-lightbox')
-            
-            //hide lightbox and empty it's HTML content
-            this._selectedCard = {
-                opened      : false,
-                htmlContent : ``,
-                selectedId  : null
+            if(e.key == "Escape") {
+                //return scroll to the body HTML element
+                document.body.classList.remove('has-open-lightbox')
+                
+                //hide lightbox and empty it's HTML content
+                this._selectedCard = {
+                    opened      : false,
+                    htmlContent : ``,
+                    selectedId  : null
+                }
+
+                //empty the light box HTML content
+                document.querySelector('.lightbox-modal-body').innerHTML = this._selectedCard.htmlContent
+
+                //hide the light box
+                document.querySelector('.lightbox-modal').classList.remove('show')
             }
-
-            //empty the light box HTML content
-            document.querySelector('.lightbox-modal-body').innerHTML = this._selectedCard.htmlContent
-
-            //hide the light box
-            document.querySelector('.lightbox-modal').classList.remove('show')
         });
     }
 
@@ -160,7 +185,14 @@ class LightboxModal {
         //add click previous listener
         this.prevElementButtonClick()
 
+        //add pres escape to close light box modal
         this.closeLightBoxByKeyboard()
+
+        //add press right arrow to get next element
+        this.nextByKeyboardHandler()
+
+        //add press left arrow to get previous element
+        this.prevByKeyboardHandler()
     }
 
 }
