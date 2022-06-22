@@ -49,7 +49,7 @@ class LightboxModal {
 
     //add press right arrow keyboard to show next element
     nextByKeyboardPress() {
-        window.addEventListener('keydown', event => {
+        document.querySelector('.media-content').addEventListener('keydown', event => {
             if(event.key === 'ArrowRight') {
                 this._showNextElement()
             }
@@ -58,7 +58,7 @@ class LightboxModal {
 
     //add press left arrow keyboard to show previous element
     prevByKeyboardPress() {
-        window.addEventListener('keydown', event => {
+        document.querySelector('.media-content').addEventListener('keydown', event => {
             if(event.key === 'ArrowLeft') {
                 this._showPrevElement()
             }
@@ -67,7 +67,7 @@ class LightboxModal {
 
     //hide light box by press escape keyboard
     closeLightBoxByKeyboard() {
-        window.addEventListener('keydown', function(e) {
+        document.querySelector('.media-content').addEventListener('keydown', function(e) {
 
             if(e.key == "Escape") {
                 //return scroll to the body HTML element
