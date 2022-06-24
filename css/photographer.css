@@ -299,3 +299,7 @@ body.has-open-lightbox {
     background-color: transparent;
     outline: none;
 }
+
+.photographer_section a {
+    text-decoration: none;
+}
