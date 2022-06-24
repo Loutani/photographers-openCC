@@ -39,6 +39,29 @@ class MediaFilter {
 
     }
 
+    //when yyou press enter on any image of media you show the lightbox
+    makeImageShowLightBoxByPressEnter() {
+
+        //get all the images of medias
+        document.querySelectorAll('.triger-click').forEach(element => {
+
+            //add event keydown for the image
+            element.addEventListener('keydown', event => {
+
+                //show only if the key pressed is Enter
+                if(event.key === "Enter") {
+                    
+                    //get data needed to show light box
+                    let mediaId = element.querySelector('img').getAttribute('media-id'),
+                        mediaIndex = element.getAttribute('tabindex')
+
+                    //show lightbox
+                    this._lightboxModal.showLightBox(mediaId, mediaIndex, this._mediasDirectoryName);
+                }
+            })
+        })
+    }
+
     //create total likes HTML content
     createTotalLikes(totalLikes, price) {
 
@@ -279,5 +302,7 @@ class MediaFilter {
 
         //render the light box
         this._lightboxModal.render()
+
+        this.makeImageShowLightBoxByPressEnter()
     }
 }
