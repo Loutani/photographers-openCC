@@ -138,6 +138,8 @@ class MediaFilter {
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
 
+        let tabindex = 0;
+
         //init media direcoty folder
         this._mediasDirectoryName = photographerName;
 
@@ -154,8 +156,10 @@ class MediaFilter {
             let mediaData = new Media(media)
 
             //create media content
-            mediaContent += new MediaFactory(mediaData, photographerName, index).render()
+            mediaContent += new MediaFactory(mediaData, photographerName, tabindex).render()
 
+            tabindex += 2;
+            
         });
         
         //render the total likes content to page
@@ -175,15 +179,25 @@ class MediaFilter {
             likeButton.addEventListener('click', e => {
                 const   parentLikeButton = e.target.parentElement,
                         likeTotal        = parentLikeButton.querySelector('span')
-                
+
                 if(parentLikeButton.classList.contains('active')) {
                     //if we clicked before we sub 1 from like and total likes
                     parentLikeButton.classList.remove('active')
+
+                    //change like style to like
+                    e.target.classList.add('far')
+                    e.target.classList.remove('fas')
+
                     likeTotal.innerText = parseInt(likeTotal.innerText) - 1
                     this._totalLikes -= 1
                 }else {
                     //if we never clicked before we add 1 from like and total likes
                     parentLikeButton.classList.add('active')
+
+                    //change like style to unlike
+                    e.target.classList.remove('far')
+                    e.target.classList.add('fas')
+
                     likeTotal.innerText = parseInt(likeTotal.innerText) + 1
                     this._totalLikes += 1
                 }
@@ -274,8 +288,6 @@ class MediaFilter {
     clickOnMediaHandler() {
         //get all the clickable medias
         const mediasCanBeClicked = document.querySelectorAll('.show-in-light-box')
-        
-        console.log(mediasCanBeClicked)
 
         //add event listener on all the clickable media
         mediasCanBeClicked.forEach( (media, index) => {
