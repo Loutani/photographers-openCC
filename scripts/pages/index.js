@@ -32,7 +32,7 @@ class Index {
 }
 
 //create new home page
-const index = new Index()
+const indexPage = new Index()
 
 //create home page content
-index.main();
+indexPage.main();
