@@ -14,9 +14,11 @@ class VideoMedia {
         return `
                 <div>
                     <div class="over-flow-the-image">
-                        <video class="${this.tabindex}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
-                            Your browser does not support the HTML5 Video element.
-                        </video>
+                        <a tabindex="${this.tabindex}" class="triger-click">
+                            <video class="${this.tabindex}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
+                                Your browser does not support the HTML5 Video element.
+                            </video>
+                        <a/>
                     </div>
                     
                     <div class="likes-title-photographer">
