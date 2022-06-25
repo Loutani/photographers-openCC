@@ -76,7 +76,6 @@ class LightboxModal {
 
     //show the light box
     showLightBox(mediaId, index, directoryName) {
-
         //get the direcotry name
         this._directoryName = directoryName
 

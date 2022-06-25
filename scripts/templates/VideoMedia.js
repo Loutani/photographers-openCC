@@ -1,12 +1,14 @@
 class VideoMedia {
-    constructor(media, photographerName, index) {
+    constructor(media, photographerName, tabindex, index) {
         //media data
         this._media = media
 
         //photographer name
         this._photographerName = photographerName
 
-        this.tabindex = index
+        this.tabindex = tabindex
+
+        this.index = index
     }
 
     //create video media HTML content
@@ -14,7 +16,7 @@ class VideoMedia {
         return `
                 <div>
                     <div class="over-flow-the-image">
-                        <a tabindex="${this.tabindex}" class="triger-click">
+                        <a tabindex="${this.tabindex}" index="${this.index}" class="triger-click">
                             <video class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
                                 Your browser does not support the HTML5 Video element.
                             </video>

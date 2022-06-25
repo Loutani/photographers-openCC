@@ -53,7 +53,7 @@ class MediaFilter {
 
                     //get data needed to show light box
                     let mediaId = element.querySelector('img,video').getAttribute('media-id'),
-                        mediaIndex = element.getAttribute('tabindex')
+                        mediaIndex = parseInt(element.getAttribute('index'))
 
                     //show lightbox
                     this._lightboxModal.showLightBox(mediaId, mediaIndex, this._mediasDirectoryName);
@@ -156,7 +156,7 @@ class MediaFilter {
             let mediaData = new Media(media)
 
             //create media content
-            mediaContent += new MediaFactory(mediaData, photographerName, tabindex).render()
+            mediaContent += new MediaFactory(mediaData, photographerName, tabindex, index).render()
 
             tabindex += 2;
 
