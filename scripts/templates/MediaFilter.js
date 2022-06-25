@@ -138,7 +138,7 @@ class MediaFilter {
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
 
-        let tabindex = 0;
+        let tabindex = 3;
 
         //init media direcoty folder
         this._mediasDirectoryName = photographerName;
@@ -159,7 +159,7 @@ class MediaFilter {
             mediaContent += new MediaFactory(mediaData, photographerName, tabindex).render()
 
             tabindex += 2;
-            
+
         });
         
         //render the total likes content to page
@@ -177,36 +177,46 @@ class MediaFilter {
         LikeButtons.forEach(likeButton => {
             //add click listener on heart icons
             likeButton.addEventListener('click', e => {
-                const   parentLikeButton = e.target.parentElement,
-                        likeTotal        = parentLikeButton.querySelector('span')
+                this.addLikeStyles(e)
+            })
 
-                if(parentLikeButton.classList.contains('active')) {
-                    //if we clicked before we sub 1 from like and total likes
-                    parentLikeButton.classList.remove('active')
-
-                    //change like style to like
-                    e.target.classList.add('far')
-                    e.target.classList.remove('fas')
-
-                    likeTotal.innerText = parseInt(likeTotal.innerText) - 1
-                    this._totalLikes -= 1
-                }else {
-                    //if we never clicked before we add 1 from like and total likes
-                    parentLikeButton.classList.add('active')
-
-                    //change like style to unlike
-                    e.target.classList.remove('far')
-                    e.target.classList.add('fas')
-
-                    likeTotal.innerText = parseInt(likeTotal.innerText) + 1
-                    this._totalLikes += 1
+            likeButton.addEventListener('keydown', e => {
+                if(e.key === "Enter") {
+                    this.addLikeStyles(e)
                 }
-
-                //show total likes
-                document.querySelector('.total-likes').innerHTML = this._totalLikes
             })
         });
 
+    }
+
+    addLikeStyles(e) {
+        const   parentLikeButton = e.target.parentElement,
+        likeTotal        = parentLikeButton.querySelector('span')
+
+        if(parentLikeButton.classList.contains('active')) {
+            //if we clicked before we sub 1 from like and total likes
+            parentLikeButton.classList.remove('active')
+
+            //change like style to like
+            e.target.classList.add('far')
+            e.target.classList.remove('fas')
+
+            likeTotal.innerText = parseInt(likeTotal.innerText) - 1
+            this._totalLikes -= 1
+        }else {
+            //if we never clicked before we add 1 from like and total likes
+            parentLikeButton.classList.add('active')
+
+            //change like style to unlike
+            e.target.classList.remove('far')
+            e.target.classList.add('fas')
+
+            likeTotal.innerText = parseInt(likeTotal.innerText) + 1
+            this._totalLikes += 1
+        }
+
+        //show total likes
+        document.querySelector('.total-likes').innerHTML = this._totalLikes
     }
 
     //create filter <select>
