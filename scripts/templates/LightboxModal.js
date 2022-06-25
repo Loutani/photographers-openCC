@@ -7,7 +7,7 @@ class LightboxModal {
         //selected item properties
         this._selectedCard = {
             opened      : false,
-            selected    : '',
+            selected    : 0,
             htmlContent : '',
             selectedId  : null
         }

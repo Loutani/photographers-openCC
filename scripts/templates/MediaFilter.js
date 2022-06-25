@@ -52,7 +52,7 @@ class MediaFilter {
                 if(event.key === "Enter") {
 
                     //get data needed to show light box
-                    let mediaId = element.querySelector('img').getAttribute('media-id'),
+                    let mediaId = element.querySelector('img,video').getAttribute('media-id'),
                         mediaIndex = element.getAttribute('tabindex')
 
                     //show lightbox
@@ -275,6 +275,8 @@ class MediaFilter {
         //get all the clickable medias
         const mediasCanBeClicked = document.querySelectorAll('.show-in-light-box')
         
+        console.log(mediasCanBeClicked)
+
         //add event listener on all the clickable media
         mediasCanBeClicked.forEach( (media, index) => {
             const mediaId       = media.getAttribute('media-id'),

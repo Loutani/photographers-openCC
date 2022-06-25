@@ -15,7 +15,7 @@ class VideoMedia {
                 <div>
                     <div class="over-flow-the-image">
                         <a tabindex="${this.tabindex}" class="triger-click">
-                            <video class="${this.tabindex}" class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
+                            <video class="show-in-light-box" media-id="${this._media._id}" src="assets/media/${this._photographerName}/${this._media._video}">
                                 Your browser does not support the HTML5 Video element.
                             </video>
                         <a/>
