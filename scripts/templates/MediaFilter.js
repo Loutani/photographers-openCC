@@ -138,7 +138,7 @@ class MediaFilter {
                                         name => this._photographer._name.replace('-', ' ').includes(name)
                                     );
 
-        let tabindex = 3;
+        let tabindex = 4;
 
         //init media direcoty folder
         this._mediasDirectoryName = photographerName;
@@ -231,7 +231,7 @@ class MediaFilter {
         //return the filter content
         return `
             <div class="select-container">
-                <select id="order-by" title="Order by">
+                <select tabindex="3" id="order-by" title="Order by">
                     ${options}
                 </select>
             </div>
